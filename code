@@ -1,0 +1,72 @@
+import pandas as pd
+from sodapy import Socrata
+# call Santa Clara Open Data Portal API.
+# token is the registered token, email_address & password are login to the data portal
+
+client = Socrata("data.sccgov.org",
+                 token,
+                 username=email_addres,
+                 password=password)
+                 
+import itertools
+items = client.get_all("tnhw-jtp5")
+line_count = len(list(items))
+results = client.get("tnhw-jtp5",limit=line_count)
+df = pd.DataFrame.from_records(results)
+
+# check data frame
+df.head()
+df.info()
+df.describe()
+
+print(df.ethnicity.unique())
+# insert a id field to associate with employee 
+range_list = range(len(df.job_category))
+df.insert(0, 'id', range_list)
+
+# transform long data frame to wide data frame for table view
+df_ethnicity = df[['id','job_category','ethnicity']]
+df_ethnicity = df_ethnicity[(df.ethnicity != 'Not Specified') ]
+df_ethnicity_pivot = pd.pivot_table(df_ethnicity, 
+                                    index=['job_category'],
+                                    columns =['ethnicity'], 
+                                    values ='id', 
+                                    fill_value = 0,
+                                    aggfunc = 'count').reset_index()
+df_ethnicity_pivot.head()
+# double check if pivot data is correct by using a groupby aggregate function
+df_ethnicity[(df_ethnicity.job_category == 'Administrative Support') &(df_ethnicity.ethnicity=='Asian')].groupby(['job_category','ethnicity']).count()
+
+# visualization using matplotlib.pyplot and seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df_ethnicity_plot = df_ethnicity.groupby(['job_category','ethnicity']).count().reset_index()
+df_ethnicity_plot = df_ethnicity_plot.sort_values(by =['id','job_category'], ascending=False)
+df_ethnicity_plot.head()
+
+plt.figure(figsize=(20,10))
+sns.barplot(x="job_category", y="id", hue="ethnicity",  data=df_ethnicity_plot)
+plt.show()
+
+# create a subset of the df_ethnicity_plot to plot for the job_category with small employee numbers
+df_ethnicity_plot_sub1= df_ethnicity_plot[(df_ethnicity_plot.job_category !='Administrative Support')
+                                          &(df_ethnicity_plot.job_category !='Professionals')
+                                          &(df_ethnicity_plot.job_category !='Protective Service Workers')]
+
+plt.figure(figsize=(20,10))
+sns.barplot(x="job_category", y="id", hue="ethnicity",data=df_ethnicity_plot_sub1)
+plt.ylabel('Employee Count')
+plt.xlabel('Job category')
+plt.show()
+
+# Hypothesis testing
+# H0: There is no association betwen job category and ethnicity
+# since we are checking association with categorical data, we'll use chi-square
+from scipy.stats import chi2_contingency
+# remove the rows when the ethnicity is not specicied
+df_eth_job = df[df.ethnicity != 'Not Specified']
+table_ethnicity = pd.crosstab(df_eth_job.ethnicity,df_eth_job.job_category)
+chi2, pval, dof, expected = chi2_contingency(table_ethnicity)
+print(pval <= 0.05)
+# pval <= 0.05, reject the null hypothesis, there is association between job category and ethnicity
