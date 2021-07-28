@@ -21,11 +21,12 @@
 <p>In the workforce: <br>
 
 1. Almost 36% of the employees are Asian, 29% Hispanic and then followed by White employees, 24%.<br><br>
-  Top_3_employee_groups.png
-
+  
+  <a href="https://github.com/ChantieSophia/scc-employee/blob/6b59b442f749d6a82e0019f9cdf54ab786c4a74b/Top_3_employee_groups.png">Top 3 Ethnicity Groups in the workforce</a>
+  
 2. Among all the job categories, professionals, administrative support, protective service workers and technicians are the biggest groups. Asian employees dominiate professionals and Technicians job categories while, Hispanic employees dominate in job categories of Administrative Support and Protective Service Workers.<br><br>
-  Employee_count_in_job_category.png
+  <a href = "https://github.com/ChantieSophia/scc-employee/blob/6b59b442f749d6a82e0019f9cdf54ab786c4a74b/Employee_count_in_job_category.png ">Ethnicity in Job Category by Employee Count </a>
 
 3. In all the departments, most of the Asian employees work in Santa Clara Valley Med Center, same as Hispanic and White employee. Compared with Asian and White employees, there is a higher percentage of Hispanic employees work in the social services agency.<br><br>
-  employee_count_in_department.png
+  <a href = "https://github.com/ChantieSophia/scc-employee/blob/6b59b442f749d6a82e0019f9cdf54ab786c4a74b/employee_count_in_department.png">Ethnicity in Department by Employee Count</a>
 4. As the results of Chi-square test, both results are significant, meaning there are associations between ethnicity and job cateogry and department respectively. However since the categories may not be completely independent from each other which violates the assumptions, we can not draw the conclusions that the association is actually there. <p>
