@@ -1,4 +1,4 @@
-# scc-employee
+# Santa Clara Workforce Ethnicity Analysis
 
 <p>In this EDA, we are going to explore the county workforce dataset and trying to answer below questions:<br><br>
 1. How does the entire workforce look like in ethnicity? Which ethnicity has a higher percentage?What about in different job category and departments?<br><br>
