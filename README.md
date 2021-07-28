@@ -3,17 +3,18 @@
 <p>In this EDA, we are going to explore the county workforce dataset and trying to answer below questions:<br><br>
 1. How does the entire workforce look like in ethnicity? Which ethnicity has a higher percentage?What about in different job category and departments?<br><br>
 2. Are there any associations between enthinicity and job category or which department the workforce is in?<p>
-**Data Source**: [Source]( https://data.sccgov.org/dataset/County-Workforce/tnhw-jtp5 ). Last Updated atJanuary 21, 2021
+
+<a href="https://data.sccgov.org/dataset/County-Workforce/tnhw-jtp5">Date Source</a> Last Updated atJanuary 21, 2021
   
-##**Structures**:
+##Structures:
 1. Get the datasource by calling the portal API
 2. Explore the data and clean the data if necessary
 3. Create plots
 4. Use Chi-Square test for associations between categories
 5. Conclusions
 
-##**Laugange**: Python <br>
-##**Tools**: Pandas, Numpy, Matplotlib.pyplot, Seaborn, Socrata <br><br>
+##Laugange: Python <br>
+##Tools: Pandas, Numpy, Matplotlib.pyplot, Seaborn, Socrata <br><br>
 
 
 ## Conclusions:
