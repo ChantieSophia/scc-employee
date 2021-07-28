@@ -6,15 +6,15 @@
 
 <a href="https://data.sccgov.org/dataset/County-Workforce/tnhw-jtp5">Date Source</a> Last Updated atJanuary 21, 2021
   
-##Structures:
+## Structures:
 1. Get the datasource by calling the portal API
 2. Explore the data and clean the data if necessary
 3. Create plots
 4. Use Chi-Square test for associations between categories
 5. Conclusions
 
-##Laugange: Python <br>
-##Tools: Pandas, Numpy, Matplotlib.pyplot, Seaborn, Socrata <br><br>
+## Laugange: Python <br>
+## Tools: Pandas, Numpy, Matplotlib.pyplot, Seaborn, Socrata <br><br>
 
 
 ## Conclusions:
